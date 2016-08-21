@@ -47,3 +47,9 @@ group :development do
 end
 gem 'devise'
 gem 'cancancan', '~> 1.10'
+gem "font-awesome-rails"
+gem 'rails_12factor', group: :production
+gem 'ckeditor_rails'
+gem 'ransack'
+gem "rmagick"
+gem "carrierwave"

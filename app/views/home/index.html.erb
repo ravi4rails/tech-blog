@@ -1,2 +1,12 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if user_signed_in? %>
+  <div class="jumbotron">
+    <h1>WelCome To TechBlog</h1>
+  </div>
+<% else %>
+  <div class="jumbotron">
+    <h1>WelCome To TechBlog</h1>
+    <%= link_to '/users/sign_in', class: 'btn btn-primary btn-lg'  do %>
+      <i class="fa fa-sign-in" aria-hidden="true"></i> Sign IN
+    <% end %>
+  </div>
+<% end %>
