@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def fullname
+    "#{first_name} #{last_name}"
+  end
+
 end
