@@ -1,0 +1,4 @@
+<tr id="attachment_<%= attachment.id %>">
+  <td><%= attachment.title%></td>
+  <td><%= link_to "Download", attachment.try(:attachment_url) %></td>
+</tr>

@@ -7,8 +7,38 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @subject.category_id %>
+  <%= @subject.category.try(:name) %>
 </p>
 
-<%= link_to 'Edit', edit_subject_path(@subject) %> |
-<%= link_to 'Back', subjects_path %>
+<% if @subject.attachments.present? %>
+  <div class="col-md-6 col-xs-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <th>Title</th>
+          <th>Download File Link</th>
+        </thead>
+        <tbody id="attachment-index">
+          <% @subject.attachments.each do |attachment| %>
+            <tr id="attachment_<%= attachment.id %>">
+              <td><%= attachment.title%></td>
+              <td><%= link_to "Download", attachment.try(:attachment_url) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="form-group">
+      <%= link_to subject_attachment_subject_path(@subject), class: "btn btn-primary btn-lg", remote: true do %>
+        <i class="fa fa-plus"></i> Add Attachments
+      <% end %>
+    </div>
+
+    <%= link_to 'Edit', edit_subject_path(@subject) %> |
+    <%= link_to 'Back', subjects_path %>
+  </div>
+<% end %>
+
+
+<div class="modal fade" id="attachment-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+</div>

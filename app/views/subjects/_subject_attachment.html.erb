@@ -1,0 +1,26 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="myModalLabel">New Batch</h4>
+    </div>
+    <%= form_for :add_new_attachment, url: add_new_attachment_subject_path, remote: true,authenticity_token: true do |f| %>
+      <%= f.hidden_field :subject_id, value: @subject.id%>
+      <div class="modal-body">
+        <div class="form-group">
+          <%= f.text_field :title, class: "form-control", placeholder: "Add Title" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :description, class: "form-control", placeholder: "Add Description" %>
+        </div>
+        <div class="form-group">
+          <%= f.file_field :attachment %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Save Attachment", class: "btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

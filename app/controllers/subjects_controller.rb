@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :set_subject, only: [:show, :edit, :update, :destroy, :subject_attachment]
+  before_action :attachment_params, only: [:add_new_attachment]
 
   def index
     @subjects = Subject.all
@@ -49,10 +50,24 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def add_new_attachment
+    @attachment = Attachment.create(attachment_params)
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def subject_attachment
+  end
+
   private
 
     def set_subject
       @subject = Subject.find(params[:id])
+    end
+
+    def attachment_params
+      params.require(:add_new_attachment).permit(:subject_id, :title, :description, :attachment)
     end
 
     def subject_params
