@@ -53,3 +53,4 @@ gem 'ckeditor_rails'
 gem 'ransack'
 gem "rmagick"
 gem "carrierwave"
+gem 'remotipart', '~> 1.2'
