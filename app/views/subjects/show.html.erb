@@ -19,6 +19,11 @@
                 <tr id="attachment_<%= attachment.id %>">
                   <td><%= attachment.title%></td>
                   <td><%= link_to "Download", attachment.try(:attachment_url) %></td>
+                  <% if user_signed_in? %>
+                    <% if current_user.role == 'admin' %>
+                      <td><%= link_to "Delete", attachment, method: :delete, data: {confirm: 'Are You sure you want to delete this subject ?'} %></td>
+                    <% end %>
+                  <% end %>
                 </tr>
               <% end %>
             </tbody>

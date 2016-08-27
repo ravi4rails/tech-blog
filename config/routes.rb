@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post :add_new_attachment
     end
   end
+  resources :attachments, only: [:destroy]
   resources :categories
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords', confirmations: 'users/confirmations'}
   get 'home/index'
