@@ -1,4 +1,5 @@
 class SubjectsController < ApplicationController
+  load_and_authorize_resource :find_by => :slug
   before_action :set_subject, only: [:show, :edit, :update, :destroy, :subject_attachment]
   before_action :attachment_params, only: [:add_new_attachment]
 

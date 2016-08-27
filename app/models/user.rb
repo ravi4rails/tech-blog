@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   has_many :articles
   ROLES = %w[admin writer reader].freeze
 
-  before_create :default_user_role
+  # before_create :default_user_role
 
-  def default_user_role
-    self.role = 'reader'
-  end
+  # def default_user_role
+  #   self.role = 'reader'
+  # end
 
   def login=(login)
     @login = login
