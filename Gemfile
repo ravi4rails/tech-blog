@@ -54,3 +54,4 @@ gem 'ransack'
 gem "rmagick"
 gem "carrierwave"
 gem 'remotipart', '~> 1.2'
+gem 'friendly_id', '~> 5.1.0'

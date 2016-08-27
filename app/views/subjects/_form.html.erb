@@ -19,6 +19,13 @@
     <%= f.label :category_id %><br>
     <%= f.number_field :category_id %>
   </div>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :youtube_link %><br>
+    <%= f.text_field :yt_link %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

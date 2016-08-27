@@ -63,7 +63,7 @@ class SubjectsController < ApplicationController
   private
 
     def set_subject
-      @subject = Subject.find(params[:id])
+      @subject = Subject.friendly.find(params[:id])
     end
 
     def attachment_params
@@ -71,6 +71,6 @@ class SubjectsController < ApplicationController
     end
 
     def subject_params
-      params.require(:subject).permit(:name, :category_id)
+      params.require(:subject).permit(:name, :category_id, :image, :yt_link)
     end
 end
