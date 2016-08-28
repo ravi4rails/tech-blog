@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   layout 'landing'
   def index
+    @categories = Category.all
     @subjects = Subject.all
   end
 

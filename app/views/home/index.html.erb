@@ -1,5 +1,5 @@
 <div id="service">
-  <div class="container sub-section">
+  <!-- <div class="container sub-section">
     <div class="row centered">
       <% @subjects.each do |sub| %>
         <div class="col-md-4">
@@ -7,6 +7,20 @@
           <h4><%= sub.name%></h4>
           <%= link_to "More Info", sub, class: "btn btn-theme"%>
           <div class="row-divider"></div>
+        </div>
+      <% end %>
+    </div>
+  </div> -->
+  <div class="container">
+    <div class="row">
+      <% @categories.each do |category| %>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="category-item">
+            <%= image_tag category.image_url, class: "img-responsive" %>
+            <div class="category-heading text-center">
+              <h4><%= link_to category.name, category, class: "btn btn-primary btn-block btn-rounded" %></h4>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>

@@ -1,5 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container sub-section">
+  <div class="row centered">
+    <% @subjects.each do |sub| %>
+      <div class="col-md-4">
+        <%= image_tag sub.image_url, class: "img-responsive" %>
+        <h4><%= sub.name%></h4>
+        <%= link_to "More Info", sub, class: "btn btn-theme"%>
+        <div class="row-divider"></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <p>
   <strong>Name:</strong>
   <%= @category.name %>
